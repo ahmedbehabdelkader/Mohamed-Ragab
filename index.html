@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Ragab Salon - You Are Different</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-tabs {
+            display: flex;
+            background: #1a1a1a;
+            
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ccc;
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 120px;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .tab-button.active {
+            background: #000000;
+            color: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #ffffff;
+        }
+
+        .menu-content {
+            padding: 40px 30px;
+            background: #0d0d0d;
+        }
+
+        .menu-section {
+            display: none;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .menu-section.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            border: 2px solid #333;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: #262626;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .menu-item h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .price {
+            background: linear-gradient(135deg, #333333, #000000);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid #555;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            border-radius: 2px;
+        }
+
+        .footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .menu-content {
+                padding: 30px 20px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .tab-button {
+                padding: 15px 10px;
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Page Loader */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 0.5s ease 2.5s forwards;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid #333;
+            border-top: 5px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: slideDown 1s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slideShow 15s infinite;
+        }
+
+        .slide {
+            width: 33.333%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        .slide-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-content p {
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .slide:nth-child(1) {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23222" width="800" height="600"/><text x="400" y="300" font-size="80" fill="%23fff" text-anchor="middle">صالون عصري</text></svg>');
+        }
+
+        .slide:nth-child(2) {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23333" width="800" height="600"/><text x="400" y="300" font-size="80" fill="%23fff" text-anchor="middle">خدمات مميزة</text></svg>');
+        }
+
+        .slide:nth-child(3) {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%23444" width="800" height="600"/><text x="400" y="300" font-size="80" fill="%23fff" text-anchor="middle">أناقة لا مثيل لها</text></svg>');
+        }
+
+        @keyframes slideShow {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(0); }
+            33% { transform: translateX(-33.333%); }
+            63% { transform: translateX(-33.333%); }
+            66% { transform: translateX(-66.666%); }
+            96% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 0;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: #ffffff;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), transparent);
+            transform: translateX(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #ffffff;
+            box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-top: 15px;
+        }
+
+        /* Offers Section */
+        .offers-section {
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            padding: 80px 0;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .offer-card {
+            background: linear-gradient(145deg, #2a2a2a, #0a0a0a);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px solid #ffffff;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ffffff;
+            color: #000000;
+            padding: 3px 3px;
+            border-radius: 25px;
+            font-weight: 900;
+            font-size: 1rem;
+        }
+
+        .offer-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 255, 255, 0.3);
+        }
+
+        .offer-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 900;
+        }
+
+        .offer-card ul {
+            list-style: none;
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .offer-card ul li {
+            font-size: 1.3rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .offer-card ul li::before {
+            content: '✓ ';
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .offer-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-top: 20px;
+        }
+
+        .offer-old-price {
+            text-decoration: line-through;
+            color: #666;
+            font-size: 1.5rem;
+            margin-left: 15px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-card p {
+            font-size: 1.3rem;
+            color: #ccc;
+            direction: ltr;
+        }
+
+        .contact-card a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #ccc;
+        }
+
+        .map-container {
+            margin-top: 60px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ffffff;
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000000;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 2px solid #ffffff;
+            margin-top: 80px;
+        }
+
+        .footer p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .slider-container {
+                height: 400px;
+            }
+
+            .slide-content h2 {
+                font-size: 2rem;
+            }
+
+            .slide-content p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid,
+            .offers-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card,
+            .offer-card,
+            .contact-card {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .slider-container {
+                height: 300px;
+            }
+
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .offer-card h3 {
+                font-size: 1.8rem;
+            }
+
+            .offer-price {
+                font-size: 2.5rem;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+	    <img src="logo.png">
+            <p class="tagline" id="tagline">YOU ARE DIFFERENT</p>
+        </header>
+
+        <nav class="menu-tabs">
+            <button class="tab-button active" onclick="showSection('hair')" id="tab-hair">
+                <i class="fas fa-cut"></i> الشعر
+            </button>
+            <button class="tab-button" onclick="showSection('beard')" id="tab-beard">
+                <i class="fas fa-user-tie"></i> اللحية
+            </button>
+            <button class="tab-button" onclick="showSection('care')" id="tab-care">
+                <i class="fas fa-spa"></i> العناية
+            </button>
+            <button class="tab-button" onclick="showSection('cleaning')" id="tab-cleaning">
+                <i class="fas fa-soap"></i> التنظيف
+            </button>
+            <button class="tab-button" onclick="showSection('pedicure')" id="tab-pedicure">
+                <i class="fas fa-foot-print"></i> باديكير
+            </button>
+            <button class="tab-button" onclick="showSection('groom')" id="tab-groom">
+                <i class="fas fa-user-check"></i> العريس
+            </button>
+        </nav>
+
+        <main class="menu-content">
+            <!-- Hair Section -->
+            <section class="menu-section active" id="hair">
+                <h2 class="section-title" id="hair-title">خدمات الشعر</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-cut">قص شعر</h3>
+                            <span class="price">115 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-consultation">استشوار</h3>
+                            <span class="price">85 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-curly">كيرلي</h3>
+                            <span class="price">100 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-bath-cream">حمام كريم</h3>
+                            <span class="price">25 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-oil-bath">حمام زيت</h3>
+                            <span class="price">100 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-treatment">معالج للشعر</h3>
+                            <span class="price">120 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-individual">فرد شعر</h3>
+                            <span class="price">80 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-strand">خصلة شعر</h3>
+                            <span class="price">120 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-dye">صبغة شعر</h3>
+                            <span class="price">200 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hair-protein">بروتين</h3>
+                            <span class="price">110 جنيه/جرام</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Beard Section -->
+            <section class="menu-section" id="beard">
+                <h2 class="section-title" id="beard-title">خدمات اللحية</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="beard-trim">اللحية</h3>
+                            <span class="price">65 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="beard-individual">فرد لحية</h3>
+                            <span class="price">150 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="beard-dye">صبغة لحية</h3>
+                            <span class="price">120 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="beard-additions">زيادات</h3>
+                            <span class="price">50 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Care Section -->
+            <section class="menu-section" id="care">
+                <h2 class="section-title" id="care-title">العناية بالبشرة</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="face-wax">شمع وجه</h3>
+                            <span class="price">100 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cleaning Section -->
+            <section class="menu-section" id="cleaning">
+                <h2 class="section-title" id="cleaning-title">خدمات التنظيف</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="face-wax">شمع وجه</h3>
+                            <span class="price">100 جنيه</span>
+                        </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="roof-clean">تنظيف سوفت</h3>
+                            <span class="price">100 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="deep-clean">تنظيف عميق</h3>
+                            <span class="price">250 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hydra-clean">تنظيف هيدرافيشال</h3>
+                            <span class="price">400 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="medical-clean">تنظيف ميديكال</h3>
+                            <span class="price">650 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pedicure Section -->
+            <section class="menu-section" id="pedicure">
+                <h2 class="section-title" id="pedicure-title">باديكير</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="hand-pedicure">باديكير يد</h3>
+                            <span class="price">130 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="foot-pedicure">باديكير للقدم</h3>
+                            <span class="price">170 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Groom Section -->
+            <section class="menu-section" id="groom">
+                <h2 class="section-title" id="groom-title">باكيج العريس</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="groom-package-1">في الفرع</h3>
+                            <span class="price">1550 جنيه</span>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <h3 id="groom-package-2">خارج الفرع</h3>
+                            <span class="price">2550 جنيه</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+         <section class="offers-section">
+        <div class="container">
+            <h2 class="section-title">عروضنا الخاصة</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-badge">عرض VIP</div>
+                    <h3>باقة الملوك</h3>
+                    <ul>
+                        <li>حلاقة شعر كاملة</li>
+                        <li>تشذيب لحية احترافي</li>
+                        <li>مساج فروة رأس</li>
+                        <li>عناية بالبشرة</li>
+                        <li>قهوة ومشروبات ساخنة</li>
+                    </ul>
+                    <div class="offer-price">
+                        200 جنيه
+                        <span class="offer-old-price">280 جنيه</span>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-badge">الأكثر مبيعاً</div>
+                    <h3>باقة الأناقة</h3>
+                    <ul>
+                        <li>حلاقة شعر</li>
+                        <li>تشذيب لحية</li>
+                        <li>غسيل شعر</li>
+                        <li>مشروبات مجانية</li>
+                    </ul>
+                    <div class="offer-price">
+                        120 جنيه
+                        <span class="offer-old-price">160 جنيه</span>
+                    </div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-badge">جديد</div>
+                    <h3>عرض الأصدقاء</h3>
+                    <ul>
+                        <li>حلاقة لشخصين</li>
+                        <li>    تهذيب لحية لشخصين</li>
+                        <li>خصم 25%</li>
+                        <li>مشروبات مجانية</li>
+                    </ul>
+                    <div class="offer-price">
+                        150 جنيه
+                        <span class="offer-old-price">200 جنيه</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+        <footer class="footer">
+            <h3 id="welcome">YOU ARE WELCOME</h3>
+		    <span>01159352566</span>
+                    <i class="fas fa-phone"></i>
+        </footer>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-button').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+
+
+        // Add smooth scrolling and enhanced interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to menu items
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add animation to price elements
+            const prices = document.querySelectorAll('.price');
+            prices.forEach(price => {
+                price.addEventListener('click', function() {
+                    this.style.animation = 'pulse 0.6s ease';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 600);
+                });
+            });
+        });
+
+        // Add CSS animation for pulse effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
